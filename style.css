@@ -150,4 +150,56 @@ h1 {
   border-color: #7ec8e3;
 }
 
-.ta
+.task-text {
+  flex: 1;
+  font-size: 1rem;
+  color: #4a4a6a;
+  transition: all 0.3s;
+}
+
+.task-text.done {
+  text-decoration: line-through;
+  color: #b0c4d8;
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  color: #b0c4d8;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  padding: 0 4px;
+}
+
+.delete-btn:hover {
+  color: #e88;
+}
+/* タブ削除ボタン */
+.tab-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.delete-tab-btn {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  width: 16px;
+  height: 16px;
+  background-color: #e88;
+  color: white;
+  border-radius: 50%;
+  font-size: 0.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.tab-wrapper:hover .delete-tab-btn {
+  opacity: 1;
+}
