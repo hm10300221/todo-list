@@ -17,6 +17,9 @@ const taskList = document.getElementById('taskList');
 function renderTabs() {
   tabsEl.innerHTML = '';
   tabs.forEach(tab => {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'tab-wrapper';
+
     const btn = document.createElement('button');
     btn.className = 'tab' + (tab === currentTab ? ' active' : '');
     btn.textContent = tab;
@@ -25,7 +28,28 @@ function renderTabs() {
       renderTabs();
       renderTasks();
     });
-    tabsEl.appendChild(btn);
+
+    // タブ削除ボタン
+    const deleteTab = document.createElement('span');
+    deleteTab.className = 'delete-tab-btn';
+    deleteTab.textContent = '✕';
+    deleteTab.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (tabs.length === 1) {
+        alert('最後のタブは削除できません');
+        return;
+      }
+      if (!confirm(`「${tab}」タブを削除しますか？`)) return;
+      delete tasks[tab];
+      tabs = tabs.filter(t => t !== tab);
+      currentTab = tabs[0];
+      renderTabs();
+      renderTasks();
+    });
+
+    wrapper.appendChild(btn);
+    wrapper.appendChild(deleteTab);
+    tabsEl.appendChild(wrapper);
   });
 }
 
@@ -99,4 +123,5 @@ taskInput.addEventListener('keydown', (e) => {
 });
 
 // 初期描画
-rend
+renderTabs();
+renderTasks();
