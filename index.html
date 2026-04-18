@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ToDoリスト</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+
+      <h1>ToDoリスト</h1>
+
+      <!-- タブエリア -->
+      <div class="tab-area">
+        <div class="tabs" id="tabs"></div>
+        <button class="add-tab-btn" id="addTabBtn">＋ タブ追加</button>
+      </div>
+
+      <!-- タスク入力 -->
+      <div class="input-area">
+        <input type="text" id="taskInput" placeholder="タスクを入力..." />
+        <button id="addTaskBtn">追加</button>
+      </div>
+
+      <!-- タスクリスト -->
+      <ul class="task-list" id="taskList"></ul>
+
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
